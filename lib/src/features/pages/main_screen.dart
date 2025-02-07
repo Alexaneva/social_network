@@ -18,15 +18,17 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   final User user = User();
   int currentIndex = 0;
-  late List<Widget> body;
+  List<Widget> body = [];
 
   @override
   void initState() {
     super.initState();
     body = [
       MainFeed(key: UniqueKey()),
-      const FavoritesScreen(),
-      const MyPostsScreen(),
+      ...[
+        const FavoritesScreen(),
+        const MyPostsScreen(),
+      ],
     ];
   }
 
@@ -34,57 +36,75 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Hello ${user.name}!',
+        title: Text(
+          currentIndex == 0
+              ? 'Hello Guest'
+              : currentIndex == 1
+              ? 'Favorites'
+              : 'My posts',
             style: AppFonts.title3.copyWith(fontWeight: FontWeight.w800)),
         actions: [
-          IconButton(
-            icon: CircleAvatar(
-              backgroundImage: AssetImage(AppImages.ava),
+          Builder(
+            builder: (context) => IconButton(
+              icon: CircleAvatar(
+                backgroundImage: AssetImage(AppImages.ava),
+              ),
+              onPressed: () => Scaffold.of(context).openDrawer(),
             ),
-            onPressed: () {
-              Navigator.of(context).pushReplacementNamed(Routes.profile);
-            },
           ),
         ],
       ),
+      drawer: Drawer(
+        child: Column(
+          children: [
+            SizedBox(height: 55),
+            CircleAvatar(
+              radius: 50,
+              backgroundImage: AssetImage(AppImages.ava),
+            ),
+            SizedBox(height: 16),
+            Text(user.name, style: AppFonts.body2),
+            SizedBox(height: 16),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text('Profile',style: AppFonts.body2),
+              onTap: () {
+                Navigator.of(context).pushReplacementNamed(Routes.profile);
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.exit_to_app),
+              title: Text('Exit', style: AppFonts.body2),
+              onTap: () {},
+            ),
+            Spacer(),
+            ListTile(
+              leading: Icon(Icons.wb_sunny),
+              title: Text('Light theme', style: AppFonts.body2),
+              onTap: () {},
+            ),
+          ],
+        ),
+      ),
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: currentIndex,
-          onTap: (int newIndex) {
-            setState(() {
-              currentIndex = newIndex;
-            });
-          },
+          onTap: (int newIndex) => setState(() => currentIndex = newIndex),
           items: [
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-                color: currentIndex == 0
-                    ? AppColors.lime250
-                    : AppColors.grayScale400,
-              ),
-              label: 'Main',
-              backgroundColor: Colors.white,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.bookmark,
-                color: currentIndex == 1
-                    ? AppColors.lime250
-                    : AppColors.grayScale400,
-              ),
-              label: 'Favorites',
-              backgroundColor: Colors.white,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                Icons.image,
-                color: currentIndex == 2
-                    ? AppColors.lime250
-                    : AppColors.grayScale400,
-              ),
-              label: 'My posts',
-              backgroundColor: Colors.white,
-            ),
+            ...[
+              Icons.home,
+              Icons.bookmark,
+              Icons.image,
+            ].asMap().entries.map((entry) {
+              return BottomNavigationBarItem(
+                icon: Icon(
+                  entry.value,
+                  color: currentIndex == entry.key
+                      ? AppColors.lime250
+                      : AppColors.grayScale400,
+                ),
+                label: ['Main', 'Favorites', 'My posts'][entry.key],
+              );
+            }),
           ]),
       body: body[currentIndex],
     );

@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       initialRoute: Routes.splash,
       routes: {
         Routes.splash: (context) => OnBoardingPage(),
-        Routes.login: (context) => LogInScreen(),
+        Routes.signIn: (context) => SignInScreen(),
         Routes.signUp: (context) => SignUpScreen(),
         Routes.main: (context) => MainScreen(),
         Routes.profile: (context) => ProfileScreen(),

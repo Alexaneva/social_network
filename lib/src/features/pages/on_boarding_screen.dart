@@ -36,7 +36,7 @@ class OnBoardingPage extends StatelessWidget {
                   ),
                   TextButton(
                     onPressed: () {
-                      Navigator.of(context).pushReplacementNamed(Routes.login);
+                      Navigator.of(context).pushReplacementNamed(Routes.signIn);
                     },
                     child: Text(
                       'Log in',

@@ -9,10 +9,14 @@ class TopPosts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PostFeed(
-        user: User(
-      name: 'Alexa T',
-      photoUrl: AppImages.ava,
-    ));
+    return ListView.builder(
+        itemCount: 5,
+        itemBuilder: (context, index) {
+          return PostFeed(
+              user: User(
+                name: 'Joe R.',
+                photoUrl: AppImages.ava,
+              ));
+        });
   }
 }

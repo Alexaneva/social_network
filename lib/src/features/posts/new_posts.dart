@@ -9,10 +9,14 @@ class NewPosts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return PostFeed(
-        user: User(
-      name: 'Sam Smith',
-      photoUrl: AppImages.ava,
-    ));
+    return ListView.builder(
+        itemCount: 5,
+        itemBuilder: (context, index) {
+          return PostFeed(
+              user: User(
+            name: 'Joe R.',
+            photoUrl: AppImages.ava,
+          ));
+        });
   }
 }

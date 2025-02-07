@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:social_network/src/constants/app_colors.dart';
 import 'package:social_network/src/constants/app_fonts.dart';
 
-class AuthInputField extends StatefulWidget {
+class InputField extends StatefulWidget {
   final TextEditingController controller;
   final String labelText;
   final bool isObscureText;
@@ -10,7 +10,7 @@ class AuthInputField extends StatefulWidget {
   final Color textColor;
   final Widget? suffixIcon;
 
-  const AuthInputField({
+  const InputField({
     super.key,
     required this.controller,
     required this.labelText,
@@ -21,10 +21,10 @@ class AuthInputField extends StatefulWidget {
   });
 
   @override
-  State<AuthInputField> createState() => _AuthInputFieldState();
+  State<InputField> createState() => _InputFieldState();
 }
 
-class _AuthInputFieldState extends State<AuthInputField> {
+class _InputFieldState extends State<InputField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -36,7 +36,7 @@ class _AuthInputFieldState extends State<AuthInputField> {
             color: AppColors.grayScale400
         ),
         border: UnderlineInputBorder(
-          borderSide: BorderSide(color: AppColors.grayScale800),
+          borderSide: BorderSide(color: AppColors.grayScale300),
         ),
         // errorText: '',
         suffixIcon: widget.suffixIcon,
