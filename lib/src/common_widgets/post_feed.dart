@@ -94,7 +94,6 @@ class _PostFeedState extends State<PostFeed> {
   @override
   Widget build(BuildContext context) {
     final String currentDate = DateFormat('dd.MM.yy').format(DateTime.now());
-
     return Card(
       margin: EdgeInsets.all(10),
       child: Column(
@@ -140,27 +139,27 @@ class _PostFeedState extends State<PostFeed> {
                 SizedBox(width: 10),
                 Text(widget.user.name,
                     style: TextStyle(fontWeight: FontWeight.bold)),
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Row(
-                  children: [
-                    IconButton(
-                      icon: Icon(Icons.favorite,
-                          color: _likesCount > 0 ? Colors.red : Colors.grey),
-                      onPressed: _incrementLikes,
-                    ),
-                    Text('$_likesCount'),
-                  ],
-                ),
-                IconButton(
-                  icon: Icon(Icons.share),
-                  onPressed: _showShareDialog,
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          IconButton(
+                            icon: Icon(Icons.favorite,
+                                color: _likesCount > 0 ? Colors.red : Colors.grey),
+                            onPressed: _incrementLikes,
+                          ),
+                          Text('$_likesCount'),
+                        ],
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.share),
+                        onPressed: _showShareDialog,
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
