@@ -2,13 +2,15 @@ import 'package:flutter/cupertino.dart';
 
 import 'package:flutter/material.dart';
 
-class AuthTextEditingControllers {
+class TextEditingControllers {
   static final signInEmail = TextEditingController();
   static final signInPassword = TextEditingController();
   static final signUpName = TextEditingController();
   static final signUpEmail = TextEditingController();
   static final signUpPassword = TextEditingController();
   static final signUpConfirmPassword = TextEditingController();
+  static final postTitle = TextEditingController();
+  static final postBody = TextEditingController();
 
   static bool get isSignInFormFilled {
     return signInEmail.text.isNotEmpty && signInPassword.text.isNotEmpty;

@@ -7,8 +7,8 @@ import '../../common_widgets/authorisation_input_field.dart';
 import '../../constants/app_text_controlles.dart';
 import '../../routing/app_routes.dart';
 
-class LogInScreen extends StatelessWidget {
-  const LogInScreen({super.key});
+class SignInScreen extends StatelessWidget {
+  const SignInScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +31,8 @@ class LogInScreen extends StatelessWidget {
             Text('E-mail',
                 style:
                     AppFonts.headline2.copyWith(color: AppColors.grayScale400)),
-            AuthInputField(
-              controller: AuthTextEditingControllers.signInEmail,
+            InputField(
+              controller: TextEditingControllers.signInEmail,
               labelText: 'Enter your e-mail',
               isObscureText: false,
               color: AppColors.grayScale800,
@@ -43,8 +43,8 @@ class LogInScreen extends StatelessWidget {
                 style: AppFonts.headline2.copyWith(
                   color: AppColors.grayScale400,
                 )),
-            AuthInputField(
-              controller: AuthTextEditingControllers.signInPassword,
+            InputField(
+              controller: TextEditingControllers.signInPassword,
               labelText: 'Enter your Password',
               isObscureText: true,
               color: AppColors.grayScale800,

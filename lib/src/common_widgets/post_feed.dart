@@ -21,71 +21,69 @@ class _PostFeedState extends State<PostFeed> {
       _likesCount++;
     });
   }
+  final User user = User();
 
   void _showShareDialog() {
-    showDialog(
+    showModalBottomSheet(
       context: context,
       builder: (context) {
-        return AlertDialog(
-          title: Text('Поделиться с'),
-          content: SingleChildScrollView(
-            child: ListBody(
-              children: [
-                Text('Список людей'),
-                SizedBox(height: 20),
-                Text('Поделиться через:'),
-                ListTile(
-                  leading: Icon(Icons.airplay),
-                  title: Text('Airdrop'),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                  },
+        return SizedBox(
+          height: 400,
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text('Breath of time'),
+                  CircleAvatar(
+                    radius: 10,
+                    backgroundColor: Colors.grey,
+                    child: Icon(Icons.close, color: Colors.white),
+                  ),
+                ],
+              ),
+              Divider(),
+              CircleAvatar(
+                radius: 50,
+                backgroundImage: AssetImage(AppImages.ava),
+              ),
+              Text(user.name),
+              Divider(),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    ListTile(
+                      leading: Icon(Icons.airplay),
+                      title: Text('AirDrop'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.telegram),
+                      title: Text('Telegram'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.share),
+                      title: Text('VK'),
+                    ),
+                    ListTile(
+                      leading: Icon(Icons.share),
+                      title: Text('Instagram'),
+                    ),
+                  ],
                 ),
-                ListTile(
-                  leading: Icon(Icons.telegram),
-                  title: Text('Telegram'),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                  },
+              ),
+              Container(
+                margin: EdgeInsets.all(16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Copy Link'),
+                    Icon(Icons.content_copy),
+                  ],
                 ),
-                ListTile(
-                  leading: Icon(Icons.share),
-                  title: Text('VK'),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                  },
-                ),
-                ListTile(
-                  leading: Icon(Icons.share),
-                  title: Text('Instagram'),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                  },
-                ),
-                ListTile(
-                  leading: Icon(Icons.share),
-                  title: Text('WhatsApp'),
-                  onTap: () {
-                    Navigator.of(context).pop();
-                  },
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
-          actions: <Widget>[
-            TextButton(
-              child: Text('Копировать ссылку'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            TextButton(
-              child: Text('Закрыть'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
         );
       },
     );
@@ -110,23 +108,26 @@ class _PostFeedState extends State<PostFeed> {
               ],
             ),
           ),
-          Container(
-            width: 300,
-            height: 200,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black26,
-                  blurRadius: 10,
-                  offset: Offset(0, 5),
-                ),
-              ],
-            ),
-            clipBehavior: Clip.antiAlias,
-            child: Image.asset(
-              AppImages.friends,
-              fit: BoxFit.cover,
+          Align(
+            alignment: Alignment.center,
+            child: Container(
+              width: 350,
+              height: 250,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black26,
+                    blurRadius: 10,
+                    offset: Offset(0, 5),
+                  ),
+                ],
+              ),
+              clipBehavior: Clip.antiAlias,
+              child: Image.asset(
+                AppImages.friends,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           Padding(
@@ -139,6 +140,7 @@ class _PostFeedState extends State<PostFeed> {
                 SizedBox(width: 10),
                 Text(widget.user.name,
                     style: TextStyle(fontWeight: FontWeight.bold)),
+                SizedBox(width: 156),
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Row(

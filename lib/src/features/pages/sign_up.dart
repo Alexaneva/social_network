@@ -31,8 +31,8 @@ class SignUpScreen extends StatelessWidget {
             Text('E-mail',
                 style:
                 AppFonts.headline2.copyWith(color: AppColors.grayScale400)),
-            AuthInputField(
-              controller: AuthTextEditingControllers.signInEmail,
+            InputField(
+              controller: TextEditingControllers.signInEmail,
               labelText: 'Enter your e-mail',
               isObscureText: false,
               color: AppColors.grayScale800,
@@ -43,8 +43,8 @@ class SignUpScreen extends StatelessWidget {
                 style: AppFonts.headline2.copyWith(
                   color: AppColors.grayScale400,
                 )),
-            AuthInputField(
-              controller: AuthTextEditingControllers.signInPassword,
+            InputField(
+              controller: TextEditingControllers.signInPassword,
               labelText: 'Enter your Password',
               isObscureText: true,
               color: AppColors.grayScale800,
@@ -57,8 +57,8 @@ class SignUpScreen extends StatelessWidget {
                 style: AppFonts.headline2.copyWith(
                   color: AppColors.grayScale400,
                 )),
-            AuthInputField(
-              controller: AuthTextEditingControllers.signInPassword,
+            InputField(
+              controller: TextEditingControllers.signInPassword,
               labelText: 'Confirm your Password',
               isObscureText: true,
               color: AppColors.grayScale800,
@@ -75,7 +75,7 @@ class SignUpScreen extends StatelessWidget {
                 )),
                 TextButton(
                   onPressed: () {
-                    Navigator.of(context).pushReplacementNamed(Routes.login);
+                    Navigator.of(context).pushReplacementNamed(Routes.signIn);
                   },
                   child: Text(
                     'Log in',
