@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../common_widgets/authorisation_input_field.dart';
+import '../../common_widgets/input_field.dart';
 import '../../common_widgets/custom_button.dart';
 import '../../constants/app_colors.dart';
 import '../../constants/app_fonts.dart';
