@@ -53,6 +53,7 @@ class _MainScreenState extends State<MainScreen> {
             ),
           ),
         ],
+        automaticallyImplyLeading: false,
       ),
       drawer: Drawer(
         child: Column(
