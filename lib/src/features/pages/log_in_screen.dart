@@ -3,7 +3,7 @@ import 'package:social_network/src/common_widgets/custom_button.dart';
 import 'package:social_network/src/constants/app_colors.dart';
 import 'package:social_network/src/constants/app_fonts.dart';
 
-import '../../common_widgets/authorisation_input_field.dart';
+import '../../common_widgets/input_field.dart';
 import '../../constants/app_text_controlles.dart';
 import '../../routing/app_routes.dart';
 
