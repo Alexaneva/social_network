@@ -3,6 +3,7 @@ import 'package:intl/intl.dart';
 import 'package:social_network/src/features/user/user_model.dart';
 
 import '../constants/app_images.dart';
+import '../features/show_dialogs/share_post_dialog.dart';
 
 class PostFeed extends StatefulWidget {
   final User user;
@@ -25,66 +26,10 @@ class _PostFeedState extends State<PostFeed> {
 
   void _showShareDialog() {
     showModalBottomSheet(
+      backgroundColor: Colors.white,
       context: context,
       builder: (context) {
-        return SizedBox(
-          height: 400,
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Breath of time'),
-                  CircleAvatar(
-                    radius: 10,
-                    backgroundColor: Colors.grey,
-                    child: Icon(Icons.close, color: Colors.white),
-                  ),
-                ],
-              ),
-              Divider(),
-              CircleAvatar(
-                radius: 50,
-                backgroundImage: AssetImage(AppImages.ava),
-              ),
-              Text(user.name),
-              Divider(),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: [
-                    ListTile(
-                      leading: Icon(Icons.airplay),
-                      title: Text('AirDrop'),
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.telegram),
-                      title: Text('Telegram'),
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.share),
-                      title: Text('VK'),
-                    ),
-                    ListTile(
-                      leading: Icon(Icons.share),
-                      title: Text('Instagram'),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.all(16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text('Copy Link'),
-                    Icon(Icons.content_copy),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        );
+        return ShareDialog(user: user);
       },
     );
   }

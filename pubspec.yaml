@@ -39,6 +39,7 @@ dependencies:
   intl: ^0.20.2
   dotted_border: ^2.1.0
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -67,6 +68,13 @@ flutter:
     - assets/images/onboarding.png
     - assets/images/oops.png
     - assets/images/ava.jpg
+    - assets/images/airdrop.png
+    - assets/images/inst.png
+    - assets/images/tg.png
+    - assets/images/vk.png
+    - assets/images/breath.png
+    - assets/images/whats.png
+    - assets/images/imes.jpg
   fonts:
     - family: nokwy
       fonts:
