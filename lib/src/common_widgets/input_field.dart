@@ -3,21 +3,23 @@ import 'package:social_network/src/constants/app_colors.dart';
 import 'package:social_network/src/constants/app_fonts.dart';
 
 class InputField extends StatefulWidget {
-  final TextEditingController controller;
   final String labelText;
   final bool isObscureText;
   final Color color;
   final Color textColor;
+  final TextEditingController? controller;
   final Widget? suffixIcon;
+  final Function()? onTap;
 
   const InputField({
     super.key,
-    required this.controller,
     required this.labelText,
     required this.isObscureText,
     required this.color,
     required this.textColor,
+    this.controller,
     this.suffixIcon,
+    this.onTap,
   });
 
   @override
@@ -45,6 +47,7 @@ class _InputFieldState extends State<InputField> {
       onChanged: (value) {
         setState(() {});
       },
+      onTap: widget.onTap,
     );
   }
 }

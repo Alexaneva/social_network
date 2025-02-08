@@ -11,6 +11,12 @@ class TextEditingControllers {
   static final signUpConfirmPassword = TextEditingController();
   static final postTitle = TextEditingController();
   static final postBody = TextEditingController();
+  static final firstName = TextEditingController();
+  static final lastName = TextEditingController();
+  static final sureName = TextEditingController();
+  static final bDay = TextEditingController();
+  static final profileEmail = TextEditingController();
+  static final country = TextEditingController();
 
   static bool get isSignInFormFilled {
     return signInEmail.text.isNotEmpty && signInPassword.text.isNotEmpty;
