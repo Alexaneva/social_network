@@ -70,8 +70,8 @@ class CreateMyPostScreen extends StatelessWidget {
             ),
             SizedBox(height: 40),
             Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              Text('Title', style: AppFonts.body2.copyWith(color: AppColors.grayScale400,)),
               InputField(
+                label: 'Title',
                 controller: TextEditingControllers.postTitle,
                 labelText: 'Enter title post',
                 isHiddenText: false,
@@ -79,8 +79,8 @@ class CreateMyPostScreen extends StatelessWidget {
                 textColor: AppColors.grayScale400,
               ),
               SizedBox(height: 10),
-              Text('Post', style: AppFonts.body2.copyWith(color: AppColors.grayScale400,)),
               InputField(
+                label: 'Post',
                 controller: TextEditingControllers.postTitle,
                 labelText: 'Enter your post',
                 isHiddenText: false,

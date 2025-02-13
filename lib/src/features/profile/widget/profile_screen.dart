@@ -1,7 +1,5 @@
-
 import 'package:flutter/material.dart';
 import 'package:social_network/src/constants/app_fonts.dart';
-
 
 import '../../../constants/app_colors.dart';
 import '../../../constants/app_images.dart';
@@ -37,11 +35,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
             Icons.arrow_back,
             color: AppColors.grayScale700,
           ),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () {},
         ),
         actions: [
           TextButton(
-              onPressed: () => Navigator.pop(context),
+              onPressed: () {},
               child: Text(
                 'Done',
                 style: AppFonts.headline1.copyWith(
@@ -72,9 +70,13 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       right: -10,
                       child: IconButton(
                         icon: CircleAvatar(
-                          radius: 15,
-                          backgroundColor: AppColors.lime250,
-                            child: Icon(Icons.photo_camera, color:AppColors.grayScale0, size: 18,)),
+                            radius: 15,
+                            backgroundColor: AppColors.lime250,
+                            child: Icon(
+                              Icons.photo_camera,
+                              color: AppColors.grayScale0,
+                              size: 18,
+                            )),
                         onPressed: () {},
                       ),
                     ),
@@ -92,47 +94,27 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 10),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text('First name',
-                    style:
-                        AppFonts.headline2.copyWith(color: AppColors.grayScale400)),
-              ),
-              SizedBox(height: 5),
+              SizedBox(height: 15),
               InputField(
+                label: 'First name',
                 controller: TextEditingControllers.firstName,
                 labelText: 'Enter your first name',
                 isHiddenText: false,
                 color: AppColors.grayScale800,
                 textColor: AppColors.grayScale800,
               ),
-              SizedBox(height: 20),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text('Last name',
-                    style: AppFonts.headline2.copyWith(
-                      color: AppColors.grayScale400,
-                    )),
-              ),
-              SizedBox(height: 5),
+              SizedBox(height: 10),
               InputField(
+                label: 'Last name',
                 controller: TextEditingControllers.lastName,
                 labelText: 'Enter your last name',
                 isHiddenText: false,
                 color: AppColors.grayScale800,
                 textColor: AppColors.grayScale800,
               ),
-              SizedBox(height: 5),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text('Sure name',
-                    style: AppFonts.headline2.copyWith(
-                      color: AppColors.grayScale400,
-                    )),
-              ),
-              SizedBox(height: 5),
+              SizedBox(height: 10),
               InputField(
+                label: 'Sure name',
                 controller: TextEditingControllers.sureName,
                 labelText: 'Enter your sure name',
                 isHiddenText: false,
@@ -167,9 +149,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           });
                         },
                       ),
-                      Text('Male', style: AppFonts.headline2.copyWith(
-                        color: AppColors.grayScale800,fontWeight: FontWeight.bold
-                      )),
+                      Text('Male',
+                          style: AppFonts.headline2.copyWith(
+                              color: AppColors.grayScale800,
+                              fontWeight: FontWeight.bold)),
                     ],
                   ),
                   Row(
@@ -186,9 +169,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           });
                         },
                       ),
-                      Text('Female', style: AppFonts.headline2.copyWith(
-                          color: AppColors.grayScale800,fontWeight: FontWeight.bold
-                      )),
+                      Text('Female',
+                          style: AppFonts.headline2.copyWith(
+                              color: AppColors.grayScale800,
+                              fontWeight: FontWeight.bold)),
                     ],
                   ),
                 ],
@@ -204,17 +188,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 5),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  'B-day',
-                    style: AppFonts.headline2.copyWith(
-                      color: AppColors.grayScale400,
-                    )
-                ),
-              ),
+              SizedBox(height: 15),
               InputField(
+                label: 'B-day',
                 labelText: 'Enter B-day',
                 isHiddenText: false,
                 color: AppColors.grayScale800,
@@ -241,55 +217,33 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
               ),
-              SizedBox(height: 5),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text('E-mail',
-                    style:
-                        AppFonts.headline2.copyWith(color: AppColors.grayScale400)),
-              ),
-              SizedBox(height: 5),
-
-
-
-
+              SizedBox(height: 10),
               InputField(
+                label: 'E-mail',
                 controller: TextEditingControllers.profileEmail,
                 labelText: 'Enter your e-mail',
                 isHiddenText: false,
                 color: AppColors.grayScale800,
                 textColor: AppColors.grayScale800,
               ),
-              SizedBox(height: 5),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text('Phone number',
-                    style:
-                        AppFonts.headline2.copyWith(color: AppColors.grayScale400)),
-              ),
-              SizedBox(height: 5),
+              SizedBox(height: 10),
               InputField(
+                label: 'Phone number',
                 labelText: 'Enter your phone number',
                 isHiddenText: false,
                 color: AppColors.grayScale800,
                 textColor: AppColors.grayScale800,
               ),
-              SizedBox(height: 5),
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text('Country',
-                    style:
-                        AppFonts.headline2.copyWith(color: AppColors.grayScale400)),
-              ),
-              SizedBox(height: 5),
+              SizedBox(height: 10),
               InputField(
+                label: 'Country',
                 controller: TextEditingControllers.country,
                 labelText: 'Enter your country',
                 isHiddenText: false,
                 color: AppColors.grayScale800,
                 textColor: AppColors.grayScale800,
               ),
-              SizedBox(height: 5),
+              SizedBox(height: 10),
             ],
           ),
         ),

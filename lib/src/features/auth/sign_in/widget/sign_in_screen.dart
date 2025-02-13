@@ -46,10 +46,8 @@ class SignInScreen extends StatelessWidget {
                         fontWeight: FontWeight.w600
                     )),
                 SizedBox(height: 40),
-                Text('E-mail',
-                    style:
-                        AppFonts.headline2.copyWith(color: AppColors.grayScale400)),
                 InputField(
+                  label: 'E-mail',
                   controller: TextEditingControllers.signInEmail,
                   labelText: 'Enter your e-mail',
                   isHiddenText: false,
@@ -58,11 +56,8 @@ class SignInScreen extends StatelessWidget {
                   validator: AuthValidator(),
                 ),
                 SizedBox(height: 20),
-                Text('Password',
-                    style: AppFonts.headline2.copyWith(
-                      color: AppColors.grayScale400,
-                    )),
                 InputField(
+                  label: 'Password',
                   controller: TextEditingControllers.signInPassword,
                   labelText: 'Enter your Password',
                   isHiddenText: true,
