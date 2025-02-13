@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../../constants/app_colors.dart';
-import '../../constants/app_fonts.dart';
-import '../../constants/app_images.dart';
-import '../user/user_model.dart';
+import '../../../constants/app_colors.dart';
+import '../../../constants/app_fonts.dart';
+import '../../../constants/app_images.dart';
+import '../../profile/model/user_model.dart';
 
 class ShareDialog extends StatelessWidget {
   final User user;

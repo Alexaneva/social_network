@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../../common_widgets/post_feed.dart';
-import '../../constants/app_images.dart';
-import '../user/user_model.dart';
+import '../../../constants/app_images.dart';
+import '../../../widgets/post_feed.dart';
+import '../../profile/model/user_model.dart';
 
-class NewPosts extends StatelessWidget {
-  const NewPosts({super.key});
+class NewPostsScreen extends StatelessWidget {
+  const NewPostsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

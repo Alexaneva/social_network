@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:social_network/src/constants/app_colors.dart';
 
-import '../../common_widgets/post_feed.dart';
-import '../../constants/app_images.dart';
-import '../user/user_model.dart';
+import '../../../constants/app_images.dart';
+import '../../../widgets/post_feed.dart';
+import '../../profile/model/user_model.dart';
 import 'create_my_post_screen.dart';
 
 class MyPostsScreen extends StatefulWidget {

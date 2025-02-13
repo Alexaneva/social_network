@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:social_network/src/features/bloc/auth_bloc/auth_bloc.dart';
-import 'package:social_network/src/features/pages/sign_in_screen.dart';
-import 'package:social_network/src/features/pages/on_boarding_screen.dart';
-import 'package:social_network/src/features/pages/sign_up.dart';
+import 'package:social_network/src/features/auth/domain/bloc/auth_bloc.dart';
+import 'package:social_network/src/features/auth/sign_in/widget/sign_in_screen.dart';
+import 'package:social_network/src/features/auth/on_boarding_screen/widget/on_boarding_screen.dart';
+import 'package:social_network/src/features/auth/sign_up/widget/sign_up.dart';
 import 'package:social_network/src/routing/app_routes.dart';
 
-import 'src/features/pages/main_screen.dart';
-import 'src/features/pages/profile_screen.dart';
+import 'src/features/main_screen/widget/main_screen.dart';
+import 'src/features/profile/widget/profile_screen.dart';
 
 void main() {
   runApp(const MyApp());

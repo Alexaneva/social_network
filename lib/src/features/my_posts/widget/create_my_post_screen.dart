@@ -1,11 +1,11 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import 'package:social_network/src/common_widgets/custom_button.dart';
 
-import '../../common_widgets/input_field.dart';
-import '../../constants/app_colors.dart';
-import '../../constants/app_fonts.dart';
-import '../../constants/app_text_controlles.dart';
+import '../../../constants/app_colors.dart';
+import '../../../constants/app_fonts.dart';
+import '../../../constants/app_text_controlles.dart';
+import '../../../widgets/custom_button.dart';
+import '../../../widgets/input_field.dart';
 
 class CreateMyPostScreen extends StatelessWidget {
   const CreateMyPostScreen({super.key});

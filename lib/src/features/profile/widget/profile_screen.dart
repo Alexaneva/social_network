@@ -1,12 +1,13 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:social_network/src/constants/app_fonts.dart';
 
-import '../../common_widgets/input_field.dart';
-import '../../constants/app_colors.dart';
-import '../../constants/app_images.dart';
-import '../../constants/app_text_controlles.dart';
-import '../show_dialogs/show_pick_data_birth_dialog.dart';
+
+import '../../../constants/app_colors.dart';
+import '../../../constants/app_images.dart';
+import '../../../constants/app_text_controlles.dart';
+import '../../../widgets/input_field.dart';
+import '../../my_posts/widget/show_pick_data_birth_dialog_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});

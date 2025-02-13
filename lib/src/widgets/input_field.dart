@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:social_network/src/constants/app_colors.dart';
 import 'package:social_network/src/constants/app_fonts.dart';
 
-import '../validation/auth_validation.dart';
+import '../features/auth/domain/validation/auth_validation.dart';
 
 class InputField extends StatefulWidget {
   final String labelText;
