@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:social_network/src/constants/app_colors.dart';
 import 'package:social_network/src/features/pages/favorites_screen.dart';
+import '../../common_widgets/app_bar_main_screen.dart';
 import '../../constants/app_fonts.dart';
 import '../../constants/app_images.dart';
 import '../../routing/app_routes.dart';
@@ -40,27 +41,7 @@ class _MainScreenState extends State<MainScreen> {
           ? ThemeData.dark()
           : ThemeData.light(),
       child: Scaffold(
-        appBar: AppBar(
-          title: Text(
-            currentIndex == 0
-                ? 'Hello Guest'
-                : currentIndex == 1
-                ? 'Favorites'
-                : 'My posts',
-            style: AppFonts.title3.copyWith(fontWeight: FontWeight.w800),
-          ),
-          actions: [
-            Builder(
-              builder: (context) => IconButton(
-                icon: CircleAvatar(
-                  backgroundImage: AssetImage(AppImages.ava),
-                ),
-                onPressed: () => Scaffold.of(context).openDrawer(),
-              ),
-            ),
-          ],
-          automaticallyImplyLeading: false,
-        ),
+        appBar: AppBarMainScreen(currentIndex: currentIndex),
         drawer: Drawer(
           child: Column(
             children: [
