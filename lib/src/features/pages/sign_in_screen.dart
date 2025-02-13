@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:social_network/src/features/bloc/auth_bloc/auth_event.dart';
+import 'package:social_network/src/common_widgets/custom_button.dart';
+import 'package:social_network/src/constants/app_colors.dart';
+import 'package:social_network/src/constants/app_fonts.dart';
+import 'package:social_network/src/features/bloc/auth_bloc/auth_bloc.dart';
 
 import '../../common_widgets/input_field.dart';
-import '../../common_widgets/custom_button.dart';
-import '../../constants/app_colors.dart';
-import '../../constants/app_fonts.dart';
 import '../../constants/app_text_controlles.dart';
 import '../../routing/app_routes.dart';
 import '../../validation/auth_validation.dart';
-import '../bloc/auth_bloc/auth_bloc.dart';
+import '../bloc/auth_bloc/auth_event.dart';
 import '../bloc/auth_bloc/auth_state.dart';
 
-class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+class SignInScreen extends StatelessWidget {
+  const SignInScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,7 @@ class SignUpScreen extends StatelessWidget {
             Navigator.of(context).pushReplacementNamed(Routes.main);
           } else if (state.state == AuthStatus.error) {
             ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(content: Text(state.message ?? 'Sign up failed')),
+              SnackBar(content: Text(state.message ?? 'Sign In failed')),
             );
           }
         },
@@ -35,20 +35,20 @@ class SignUpScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 190),
-                Text('Join us',
+                SizedBox(height: 250),
+                Text('Log In',
                     style: AppFonts.title3.copyWith(color: AppColors.lime250)),
                 SizedBox(height: 8),
                 Text('You will be able to fully communicate',
                     style: AppFonts.headline2.copyWith(
-                      fontWeight: FontWeight.w600
+                        fontWeight: FontWeight.w600
                     )),
                 SizedBox(height: 40),
                 Text('E-mail',
                     style:
-                    AppFonts.headline2.copyWith(color: AppColors.grayScale400)),
+                        AppFonts.headline2.copyWith(color: AppColors.grayScale400)),
                 InputField(
-                  controller: TextEditingControllers.signUpEmail,
+                  controller: TextEditingControllers.signInEmail,
                   labelText: 'Enter your e-mail',
                   isHiddenText: false,
                   color: AppColors.grayScale800,
@@ -61,43 +61,28 @@ class SignUpScreen extends StatelessWidget {
                       color: AppColors.grayScale400,
                     )),
                 InputField(
-                  controller: TextEditingControllers.signUpPassword,
+                  controller: TextEditingControllers.signInPassword,
                   labelText: 'Enter your Password',
                   isHiddenText: true,
                   color: AppColors.grayScale800,
                   textColor: AppColors.grayScale800,
                   suffixIcon:
-                  Icon(Icons.visibility, color: AppColors.grayScale400),
+                      Icon(Icons.visibility_off, color: AppColors.grayScale400),
                   validator: AuthValidator(),
                 ),
-                SizedBox(height: 20),
-                Text('Confirm password',
-                    style: AppFonts.headline2.copyWith(
-                      color: AppColors.grayScale400,
-                    )),
-                InputField(
-                  controller: TextEditingControllers.signUpConfirmPassword,
-                  labelText: 'Confirm your Password',
-                  isHiddenText: true,
-                  color: AppColors.grayScale800,
-                  textColor: AppColors.grayScale800,
-                  suffixIcon:
-                  Icon(Icons.visibility, color: AppColors.grayScale400),
-                  validator: AuthValidator(),
-                ),
-                SizedBox(height: 130),
+                SizedBox(height: 150),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Already have an account?', style: AppFonts.body2.copyWith(
+                    Text('No account?', style: AppFonts.body2.copyWith(
                       fontSize: 15,
                     )),
                     TextButton(
                       onPressed: () {
-                        Navigator.of(context).pushReplacementNamed(Routes.signIn);
+                        Navigator.of(context).pushReplacementNamed(Routes.signUp);
                       },
                       child: Text(
-                        'Log in',
+                        'Register',
                         style: AppFonts.body2.copyWith(
                           decoration: TextDecoration.underline,
                           decorationColor: AppColors.lime100,
@@ -109,15 +94,14 @@ class SignUpScreen extends StatelessWidget {
                   ],
                 ),
                 CustomButton(
-                  text: 'Continue',
-                  onPressed: (){
-                    context.read<AuthBloc>().add(SignUp(
-                      TextEditingControllers.signUpEmail.text,
-                      TextEditingControllers.signUpPassword.text,
-                      TextEditingControllers.signUpConfirmPassword.text,
-                    ));
-                  },
-                  color: AppColors.grayScale500,
+                    text: 'Continue',
+                    onPressed: () {
+                      context.read<AuthBloc>().add(SignIn(
+                        TextEditingControllers.signInEmail.text,
+                        TextEditingControllers.signInPassword.text,
+                      ));
+                    },
+                    color: AppColors.grayScale500,
                   backgroundColor:AppColors.grayScale200,
                 ),
               ],

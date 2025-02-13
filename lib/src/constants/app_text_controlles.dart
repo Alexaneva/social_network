@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 class TextEditingControllers {
   static final signInEmail = TextEditingController();
   static final signInPassword = TextEditingController();
-  static final signUpName = TextEditingController();
   static final signUpEmail = TextEditingController();
   static final signUpPassword = TextEditingController();
   static final signUpConfirmPassword = TextEditingController();
@@ -23,7 +22,7 @@ class TextEditingControllers {
   }
 
   static bool get isSignUpFormFilled {
-    return signUpName.text.isNotEmpty &&
+    return
         signUpEmail.text.isNotEmpty &&
         signUpPassword.text.isNotEmpty &&
         signUpConfirmPassword.text.isNotEmpty;

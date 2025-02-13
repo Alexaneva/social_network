@@ -74,7 +74,7 @@ class CreateMyPostScreen extends StatelessWidget {
               InputField(
                 controller: TextEditingControllers.postTitle,
                 labelText: 'Enter title post',
-                isObscureText: false,
+                isHiddenText: false,
                 color: AppColors.grayScale400,
                 textColor: AppColors.grayScale400,
               ),
@@ -83,7 +83,7 @@ class CreateMyPostScreen extends StatelessWidget {
               InputField(
                 controller: TextEditingControllers.postTitle,
                 labelText: 'Enter your post',
-                isObscureText: false,
+                isHiddenText: false,
                 color: AppColors.grayScale200,
                 textColor: AppColors.grayScale200,
               ),
