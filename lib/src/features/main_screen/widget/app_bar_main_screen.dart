@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../constants/app_fonts.dart';
-import '../constants/app_images.dart';
+import '../../../constants/app_fonts.dart';
+import '../../../constants/app_images.dart';
 
 class AppBarMainScreen extends StatelessWidget implements PreferredSizeWidget {
   final int currentIndex;

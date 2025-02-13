@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:social_network/src/constants/app_colors.dart';
-import 'package:social_network/src/features/pages/favorites_screen.dart';
-import '../../common_widgets/app_bar_main_screen.dart';
-import '../../constants/app_fonts.dart';
-import '../../constants/app_images.dart';
-import '../../routing/app_routes.dart';
-import '../user/user_model.dart';
-import 'main_feed_screen.dart';
-import 'my_posts_screen.dart';
+import 'package:social_network/src/features/favorites/widget/favorites_screen.dart';
+import '../../main_feed/widget/main_feed_screen.dart';
+import '../../profile/model/user_model.dart';
+import 'app_bar_main_screen.dart';
+import '../../../constants/app_fonts.dart';
+import '../../../constants/app_images.dart';
+import '../../../routing/app_routes.dart';
+import '../../my_posts/widget/my_posts_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});

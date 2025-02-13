@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:social_network/src/features/bloc/auth_bloc/auth_event.dart';
-
-import '../../common_widgets/input_field.dart';
-import '../../common_widgets/custom_button.dart';
-import '../../constants/app_colors.dart';
-import '../../constants/app_fonts.dart';
-import '../../constants/app_text_controlles.dart';
-import '../../routing/app_routes.dart';
-import '../../validation/auth_validation.dart';
-import '../bloc/auth_bloc/auth_bloc.dart';
-import '../bloc/auth_bloc/auth_state.dart';
+import '../../../../constants/app_colors.dart';
+import '../../../../constants/app_fonts.dart';
+import '../../../../constants/app_text_controlles.dart';
+import '../../../../routing/app_routes.dart';
+import '../../../../widgets/custom_button.dart';
+import '../../../../widgets/input_field.dart';
+import '../../domain/bloc/auth_bloc.dart';
+import '../../domain/bloc/auth_event.dart';
+import '../../domain/bloc/auth_state.dart';
+import '../../domain/validation/auth_validation.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});

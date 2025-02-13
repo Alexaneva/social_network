@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:social_network/src/features/bloc/auth_bloc/auth_event.dart';
-import 'package:social_network/src/features/bloc/auth_bloc/auth_state.dart';
 
-import '../../../validation/auth_validation.dart';
+import '../validation/auth_validation.dart';
+import 'auth_event.dart';
+import 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthValidator _validator = AuthValidator();

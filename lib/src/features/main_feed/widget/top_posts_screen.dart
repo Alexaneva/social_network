@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import '../../common_widgets/post_feed.dart';
-import '../../constants/app_images.dart';
-import '../user/user_model.dart';
+import '../../../constants/app_images.dart';
+import '../../../widgets/post_feed.dart';
+import '../../profile/model/user_model.dart';
 
-class TopPosts extends StatelessWidget {
-  const TopPosts({super.key});
+class TopPostsScreen extends StatelessWidget {
+  const TopPostsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

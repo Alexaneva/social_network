@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:social_network/src/features/user/user_model.dart';
 
 import '../constants/app_images.dart';
-import '../features/show_dialogs/share_post_dialog.dart';
+import '../features/profile/model/user_model.dart';
+import '../features/my_posts/widget/share_post_dialog_screen.dart';
 
 class PostFeed extends StatefulWidget {
   final User user;

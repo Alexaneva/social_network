@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../common_widgets/custom_button.dart';
-import '../../constants/app_colors.dart';
-import '../../constants/app_fonts.dart';
-import '../../constants/app_images.dart';
-import '../../routing/app_routes.dart';
+import '../../../../constants/app_colors.dart';
+import '../../../../constants/app_fonts.dart';
+import '../../../../constants/app_images.dart';
+import '../../../../routing/app_routes.dart';
+import '../../../../widgets/custom_button.dart';
 
 class OnBoardingPage extends StatelessWidget {
   const OnBoardingPage({super.key});

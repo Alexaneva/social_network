@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../posts/new_posts.dart';
-import '../posts/top_posts.dart';
-import '../tab_bar_post_feed/tab_bar_in_main_post_feed.dart';
-import '../user/user_model.dart';
+import '../../profile/model/user_model.dart';
+import 'new_posts_screen.dart';
+import 'top_posts_screen.dart';
+import 'tab_bar_in_main_post_feed.dart';
 
 class MainFeed extends StatefulWidget {
   const MainFeed({ required Key key}) : super(key: key);
@@ -47,8 +47,8 @@ class _MainFeedState extends State<MainFeed>
             child: TabBarView(
               controller: _tabController,
               children: [
-                NewPosts(),
-                TopPosts(),
+                NewPostsScreen(),
+                TopPostsScreen(),
               ],
             ),
           ),
