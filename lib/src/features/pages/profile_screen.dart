@@ -102,7 +102,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               InputField(
                 controller: TextEditingControllers.firstName,
                 labelText: 'Enter your first name',
-                isObscureText: false,
+                isHiddenText: false,
                 color: AppColors.grayScale800,
                 textColor: AppColors.grayScale800,
               ),
@@ -118,7 +118,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               InputField(
                 controller: TextEditingControllers.lastName,
                 labelText: 'Enter your last name',
-                isObscureText: false,
+                isHiddenText: false,
                 color: AppColors.grayScale800,
                 textColor: AppColors.grayScale800,
               ),
@@ -134,7 +134,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               InputField(
                 controller: TextEditingControllers.sureName,
                 labelText: 'Enter your sure name',
-                isObscureText: false,
+                isHiddenText: false,
                 color: AppColors.grayScale800,
                 textColor: AppColors.grayScale800,
               ),
@@ -215,7 +215,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               InputField(
                 labelText: 'Enter B-day',
-                isObscureText: false,
+                isHiddenText: false,
                 color: AppColors.grayScale800,
                 textColor: AppColors.grayScale800,
                 onTap: () async {
@@ -255,7 +255,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               InputField(
                 controller: TextEditingControllers.profileEmail,
                 labelText: 'Enter your e-mail',
-                isObscureText: false,
+                isHiddenText: false,
                 color: AppColors.grayScale800,
                 textColor: AppColors.grayScale800,
               ),
@@ -269,7 +269,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               SizedBox(height: 5),
               InputField(
                 labelText: 'Enter your phone number',
-                isObscureText: false,
+                isHiddenText: false,
                 color: AppColors.grayScale800,
                 textColor: AppColors.grayScale800,
               ),
@@ -284,7 +284,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               InputField(
                 controller: TextEditingControllers.country,
                 labelText: 'Enter your country',
-                isObscureText: false,
+                isHiddenText: false,
                 color: AppColors.grayScale800,
                 textColor: AppColors.grayScale800,
               ),
