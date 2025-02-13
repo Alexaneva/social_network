@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:social_network/src/constants/app_colors.dart';
 import 'package:social_network/src/constants/app_fonts.dart';
 
-class TabBarWidget extends StatelessWidget {
+class TabBarWidget extends StatefulWidget {
   final TabController tabController;
   final Function(int) onTap;
 
@@ -13,11 +13,33 @@ class TabBarWidget extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  State <TabBarWidget> createState() => _TabBarWidgetState();
+}
+
+class _TabBarWidgetState extends State<TabBarWidget> {
+  @override
+  void initState() {
+    super.initState();
+    widget.tabController.addListener(_onTabChanged);
+  }
+
+  @override
+  void dispose() {
+    widget.tabController.removeListener(_onTabChanged);
+    super.dispose();
+  }
+
+  void _onTabChanged() {
+    setState(() {});
+  }
+
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        onTap(tabController.index == 0 ? 1 : 0);
-        tabController.animateTo(tabController.index == 0 ? 1 : 0);
+        int newIndex = widget.tabController.index == 0 ? 1 : 0;
+        widget.onTap(newIndex);
+        widget.tabController.animateTo(newIndex);
       },
       child: Padding(
         padding: EdgeInsets.all(16),
@@ -36,7 +58,7 @@ class TabBarWidget extends StatelessWidget {
                       topLeft: Radius.circular(20),
                       bottomLeft: Radius.circular(20),
                     ),
-                    color: tabController.index == 0
+                    color: widget.tabController.index == 0
                         ? AppColors.lime250
                         : AppColors.grayScale200,
                   ),
@@ -45,7 +67,7 @@ class TabBarWidget extends StatelessWidget {
                       'New',
                       style: AppFonts.body3.copyWith(
                         fontWeight: FontWeight.w700,
-                        color: tabController.index == 0
+                        color: widget.tabController.index == 0
                             ? AppColors.grayScale0
                             : AppColors.grayScale800,
                       ),
@@ -60,7 +82,7 @@ class TabBarWidget extends StatelessWidget {
                       topRight: Radius.circular(25),
                       bottomRight: Radius.circular(25),
                     ),
-                    color: tabController.index == 1
+                    color: widget.tabController.index == 1
                         ? AppColors.lime250
                         : AppColors.grayScale200,
                   ),
@@ -69,7 +91,7 @@ class TabBarWidget extends StatelessWidget {
                       'Top',
                       style: AppFonts.body3.copyWith(
                         fontWeight: FontWeight.w700,
-                        color: tabController.index == 1
+                        color: widget.tabController.index == 1
                             ? AppColors.grayScale0
                             : AppColors.grayScale800,
                       ),
