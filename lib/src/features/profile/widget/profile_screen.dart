@@ -5,7 +5,7 @@ import '../../../constants/app_colors.dart';
 import '../../../constants/app_images.dart';
 import '../../../constants/app_text_controlles.dart';
 import '../../../widgets/input_field.dart';
-import '../../my_posts/widget/show_pick_data_birth_dialog_screen.dart';
+import 'show_pick_data_birth_dialog_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
