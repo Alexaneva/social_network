@@ -1,141 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:social_network/src/features/my_posts/widget/social_media_buttons.dart';
+import 'package:social_network/src/features/my_posts/widget/user_list.dart';
 
-import '../../../constants/app_colors.dart';
-import '../../../constants/app_fonts.dart';
 import '../../../constants/app_images.dart';
 import '../../profile/model/user_model.dart';
+import 'copy_link_button.dart';
+import 'header_section.dart';
 
 class ShareDialog extends StatelessWidget {
-  final User user;
+  final List<User> users;
 
-  const ShareDialog({super.key, required this.user});
+  const ShareDialog({super.key, required this.users});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: EdgeInsets.only(top: 10),
-          child: Row(
-            children: [
-              SizedBox(width: 15),
-              Image.asset(AppImages.breath),
-              Text(
-                'Breath of time',
-                style: AppFonts.headline1.copyWith(
-                  fontSize: 17,
-                  color: AppColors.grayScale700,
-                ),
-              ),
-              SizedBox(width: 180),
-              IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: CircleAvatar(
-                  radius: 10,
-                  backgroundColor: AppColors.grayScale300,
-                  child: Icon(
-                    Icons.close,
-                    color: Colors.white,
-                    size: 10,
-                  ),
-                ),
-              ),
-            ],
-          ),
+        HeaderSection(
+          title: 'Breath of time',
+          onClose: () => Navigator.pop(context),
         ),
         Divider(),
-        SizedBox(
-          height: 120,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: 6,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    CircleAvatar(
-                      radius: 35,
-                      backgroundImage: AssetImage(AppImages.ava),
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      user.name,
-                    ),
-                  ],
-                ),
-              );
-            },
-          ),
-        ),
+        UserList(users: users),
         Divider(),
-        SizedBox(
-          height: 100,
-          child: SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                    icon: Image.asset(AppImages.airdrop),
-                    onPressed: () {},
-                  ),
-                  IconButton(
-                    icon: Image.asset(AppImages.tg),
-                    onPressed: () {},
-                  ),
-                  IconButton(
-                    icon: Image.asset(AppImages.vk),
-                    onPressed: () {},
-                  ),
-                  IconButton(
-                    icon: Image.asset(AppImages.inst),
-                    onPressed: () {},
-                  ),
-                  IconButton(
-                    icon: Image.asset(AppImages.whats),
-                    onPressed: () {},
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
+        SocialMediaButtons(images: [
+          AppImages.airdrop,
+          AppImages.tg,
+          AppImages.vk,
+          AppImages.inst,
+          AppImages.whats,
+        ]),
         SizedBox(height: 20),
-        Padding(
-          padding: EdgeInsets.all(16),
-          child: Container(
-            height: 50,
-            decoration: BoxDecoration(
-              color: AppColors.grayScale300,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            padding: const EdgeInsets.only(left: 16, right: 10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Copy Link',
-                  style: AppFonts.headline1.copyWith(
-                    fontSize: 17,
-                    color: AppColors.grayScale700,
-                  ),
-                ),
-                Spacer(),
-                IconButton(
-                  icon: Icon(Icons.file_copy_outlined,
-                      color: AppColors.grayScale700, size: 20),
-                  onPressed: () {},
-                ),
-              ],
-            ),
-          ),
-        )
+        CopyLinkButton(onCopy: () {}),
       ],
     );
   }

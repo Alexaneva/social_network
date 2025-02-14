@@ -29,7 +29,7 @@ class _PostFeedState extends State<PostFeed> {
       backgroundColor: Colors.white,
       context: context,
       builder: (context) {
-        return ShareDialog(user: user);
+        return ShareDialog(users: [widget.user]);
       },
     );
   }
