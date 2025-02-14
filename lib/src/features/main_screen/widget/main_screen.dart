@@ -8,6 +8,7 @@ import '../../../constants/app_fonts.dart';
 import '../../../constants/app_images.dart';
 import '../../../routing/app_routes.dart';
 import '../../my_posts/widget/my_posts_screen.dart';
+import 'custom_bottom_navigation_bar.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -37,9 +38,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Theme(
-      data: _isDarkTheme
-          ? ThemeData.dark()
-          : ThemeData.light(),
+      data: _isDarkTheme ? ThemeData.dark() : ThemeData.light(),
       child: Scaffold(
         appBar: AppBarMainScreen(currentIndex: currentIndex),
         drawer: Drawer(
@@ -68,7 +67,8 @@ class _MainScreenState extends State<MainScreen> {
               Spacer(),
               ListTile(
                 leading: Icon(Icons.wb_sunny),
-                title: Text(_isDarkTheme ? 'Light theme' : 'Dark theme', style: AppFonts.body2),
+                title: Text(_isDarkTheme ? 'Light theme' : 'Dark theme',
+                    style: AppFonts.body2),
                 onTap: () {
                   setState(() {
                     _isDarkTheme = !_isDarkTheme;
@@ -78,27 +78,13 @@ class _MainScreenState extends State<MainScreen> {
             ],
           ),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: currentIndex,
-          onTap: (int newIndex) => setState(() => currentIndex = newIndex),
-          items: [
-            ...[
-              Icons.home,
-              Icons.bookmark,
-              Icons.image,
-            ].asMap().entries.map((entry) {
-              return BottomNavigationBarItem(
-                icon: Icon(
-                  entry.value,
-                  color: currentIndex == entry.key
-                      ? AppColors.lime250
-                      : AppColors.grayScale400,
-                ),
-                label: ['Main', 'Favorites', 'My posts'][entry.key],
-              );
+        bottomNavigationBar: CustomBottomNavigationBar(
+            currentIndex: currentIndex,
+            onTap: (int newIndex) {
+              setState(() {
+                currentIndex = newIndex;
+              });
             }),
-          ],
-        ),
         body: body[currentIndex],
       ),
     );
