@@ -1,11 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../validation/auth_validation.dart';
 import 'auth_event.dart';
 import 'auth_state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  final AuthValidator _validator = AuthValidator();
 
   AuthBloc() : super(AuthState(state: AuthStatus.initial)) {
     on<SignIn>(_onSignIn);
@@ -13,38 +11,22 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   Future<void> _onSignIn(SignIn event, Emitter<AuthState> emit) async {
-    emit(AuthState(state: AuthStatus.loading));
-    final emailError = _validator.validateEmail(event.email);
-    if (emailError != null) {
-      emit(AuthState(state: AuthStatus.error, message: emailError));
-      return;
+    try {
+      emit(AuthState(state: AuthStatus.loading));
+      emit(AuthState(state: AuthStatus.loaded));
+    } catch (e) {
+      emit(AuthState(state: AuthStatus.error, message: e.toString()));
     }
-    if (event.password.isEmpty) {
-      emit(AuthState(
-          state: AuthStatus.error, message: 'Password cannot be empty'));
-      return;
-    }
-    emit(AuthState(state: AuthStatus.loaded));
   }
+
 
   Future<void> _onSignUp(SignUp event, Emitter<AuthState> emit) async {
     emit(AuthState(state: AuthStatus.loading));
-    final emailError = _validator.validateEmail(event.email);
-    if (emailError != null) {
-      emit(AuthState(state: AuthStatus.error, message: emailError));
-      return;
+    try {
+      emit(AuthState(state: AuthStatus.loading));
+      emit(AuthState(state: AuthStatus.loaded));
+    } catch (e) {
+      emit(AuthState(state: AuthStatus.error, message: e.toString()));
     }
-    final passwordError = _validator.validatePassword(event.password);
-    if (passwordError != null) {
-      emit(AuthState(state: AuthStatus.error, message: passwordError));
-      return;
-    }
-    final confirmPasswordError =
-        _validator.validateConfirmPassword(event.password, event.password);
-    if (confirmPasswordError != null) {
-      emit(AuthState(state: AuthStatus.error, message: confirmPasswordError));
-      return;
-    }
-    emit(AuthState(state: AuthStatus.loaded));
   }
 }
