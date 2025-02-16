@@ -2,10 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:social_network/src/constants/app_images.dart';
 
 import '../../../constants/app_colors.dart';
+import 'show_photo_dialog.dart';
 
-class AvatarProfile extends StatelessWidget {
+class AvatarProfile extends StatefulWidget {
   const AvatarProfile({super.key});
 
+  @override
+  State<AvatarProfile> createState() => _AvatarProfileState();
+}
+
+class _AvatarProfileState extends State<AvatarProfile> {
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -28,7 +34,14 @@ class AvatarProfile extends StatelessWidget {
                     color: AppColors.grayScale0,
                     size: 18,
                   )),
-              onPressed: () {},
+              onPressed: () async {
+                await showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return ShowPhotoDialog();
+                  },
+                );
+              },
             ),
           ),
         ],

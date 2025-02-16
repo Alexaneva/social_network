@@ -7,6 +7,12 @@ import '../../../constants/app_text_controlles.dart';
 import '../../../widgets/input_field.dart';
 
 class PersonalInfo extends StatefulWidget {
+  static Map<String, dynamic> getValues(BuildContext context) {
+    final personalInfoState =
+        context.findAncestorStateOfType<_PersonalInfoState>();
+    return personalInfoState!.getValues();
+  }
+
   const PersonalInfo({super.key});
 
   @override
@@ -14,11 +20,20 @@ class PersonalInfo extends StatefulWidget {
 }
 
 class _PersonalInfoState extends State<PersonalInfo> {
+  bool isMale = true;
+  bool isFemale = false;
+  DateTime? selectedDate;
+
+  Map<String, dynamic> getValues() {
+    return {
+      'isMale': isMale,
+      'isFemale': isFemale,
+      'selectedDate': selectedDate,
+    };
+  }
+
   @override
   Widget build(BuildContext context) {
-    bool isMale = true;
-    bool isFemale = false;
-
     return Column(
       children: [
         Align(
@@ -130,6 +145,7 @@ class _PersonalInfoState extends State<PersonalInfo> {
           label: 'B-day',
           labelText: 'Enter B-day',
           isHiddenText: false,
+          controller: TextEditingControllers.bDay,
           color: AppColors.grayScale800,
           textColor: AppColors.grayScale800,
           onTap: () async {
@@ -140,7 +156,13 @@ class _PersonalInfoState extends State<PersonalInfo> {
                   controller: TextEditingControllers.bDay,
                 );
               },
-            );
+            ).then((value) {
+              if (value != null) {
+                setState(() {
+                  selectedDate = value;
+                });
+              }
+            });
           },
         ),
       ],

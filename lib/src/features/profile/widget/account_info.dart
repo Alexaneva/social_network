@@ -40,6 +40,7 @@ class _AccountInfoState extends State<AccountInfo> {
         InputField(
           label: 'Phone number',
           labelText: 'Enter your phone number',
+          controller: TextEditingControllers.phoneNumber,
           isHiddenText: false,
           color: AppColors.grayScale800,
           textColor: AppColors.grayScale800,

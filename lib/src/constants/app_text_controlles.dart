@@ -16,6 +16,7 @@ class TextEditingControllers {
   static final bDay = TextEditingController();
   static final profileEmail = TextEditingController();
   static final country = TextEditingController();
+  static final phoneNumber = TextEditingController();
 
   static bool get isSignInFormFilled {
     return signInEmail.text.isNotEmpty && signInPassword.text.isNotEmpty;
